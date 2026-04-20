@@ -162,8 +162,8 @@ function Show-LauncherHeader {
     $leftPadding = [Math]::Max(0, [int]((68 - $title.Length) / 2))
     Write-Host ((" " * $leftPadding) + $title) -ForegroundColor Cyan
     Write-Rule -Width 68 -Color DarkCyan -Character '='
-    Write-InfoLine -Label "Version" -Value "2026.04.19.16"
-    Write-InfoLine -Label "Auto Env" -Value "torch_env (Python 3.10)"
+    Write-InfoLine -Label "Version" -Value "2026.04.19.19"
+    Write-InfoLine -Label "Author" -Value "CunCun"
 }
 
 function Initialize-CondaRuntimeSettings {
@@ -1649,6 +1649,12 @@ function Ensure-RequiredPythonPackages {
             Module       = "notebook"
             CondaPackage = "notebook"
             PipPackage   = "notebook"
+        },
+        [PSCustomObject]@{
+            Label        = "matplotlib"
+            Module       = "matplotlib"
+            CondaPackage = "matplotlib"
+            PipPackage   = "matplotlib"
         },
         [PSCustomObject]@{
             Label        = "torch"

@@ -1,0 +1,6 @@
+Windows 使用说明
+
+1. 将 start_conda_jupyter_win.bat 解压到课程文件夹。
+2. 右键以管理员身份运行 start_conda_jupyter_win.bat。
+3. 按提示选择 Conda 环境。
+4. 如脚本询问是否创建 torch_env 或安装缺失依赖，输入 y 或 n 即可。

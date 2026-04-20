@@ -5,6 +5,7 @@ set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REQUESTED_ENV=""
 DRY_RUN=0
+LAUNCHER_VERSION="2026.04.19.19"
 
 CONDA_ROOT=""
 CONDA_BIN=""
@@ -51,6 +52,13 @@ print_line() {
     printf "%b%68s%b\n" "$COLOR_LINE" "" "$COLOR_RESET" | tr ' ' '='
 }
 
+print_info_line() {
+    local label="$1"
+    local value="$2"
+
+    printf "%b%-12s%b: %b%s%b\n" "$COLOR_PATH" "$label" "$COLOR_RESET" "$COLOR_TEXT" "$value" "$COLOR_RESET"
+}
+
 pause_before_exit() {
     if [[ -t 0 ]]; then
         printf "\nPress Enter to close..."
@@ -65,11 +73,20 @@ fail() {
 }
 
 show_header() {
+    local title="CONDA JUPYTER LAUNCHER"
+    local padding=0
+
     printf "\033]0;%s\007" "Conda Jupyter Launcher"
     printf "\n"
     print_line
-    printf "%b%44s%b\n" "$COLOR_HEADER" "CONDA JUPYTER LAUNCHER" "$COLOR_RESET"
+    padding=$(( (68 - ${#title}) / 2 ))
+    if (( padding < 0 )); then
+        padding=0
+    fi
+    printf "%b%*s%s%b\n" "$COLOR_HEADER" "$padding" "" "$title" "$COLOR_RESET"
     print_line
+    print_info_line "Version" "$LAUNCHER_VERSION"
+    print_info_line "Author" "CunCun"
 }
 
 normalize_dir() {
@@ -556,10 +573,10 @@ test_python_module_in_environment() {
 
 ensure_required_python_packages() {
     local environment_name="$1"
-    local labels=("pandas" "scikit-learn" "jupyter notebook" "torch" "torchvision" "torchaudio")
-    local modules=("pandas" "sklearn" "notebook" "torch" "torchvision" "torchaudio")
-    local conda_packages=("pandas" "scikit-learn" "notebook" "pytorch" "torchvision" "torchaudio")
-    local pip_packages=("pandas" "scikit-learn" "notebook" "torch" "torchvision" "torchaudio")
+    local labels=("pandas" "scikit-learn" "jupyter notebook" "matplotlib" "torch" "torchvision" "torchaudio")
+    local modules=("pandas" "sklearn" "notebook" "matplotlib" "torch" "torchvision" "torchaudio")
+    local conda_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "pytorch" "torchvision" "torchaudio")
+    local pip_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "torch" "torchvision" "torchaudio")
     local missing_conda_packages=()
     local missing_pip_packages=()
     local missing_labels=()

@@ -1,0 +1,21 @@
+macOS 运行说明
+
+1.start_conda_jupyter_macos.command文件解压到课程文件夹。
+
+2.打开“终端”。
+
+3. 输入下面这条命令，注意最后要留一个空格：
+
+xattr -d com.apple.quarantine 
+
+4. 把 start_conda_jupyter_macos.command 文件直接拖进终端窗口，终端会自动补全文件路径，然后按回车。
+
+5. 再输入下面这条命令，最后同样留一个空格：
+
+chmod +x 
+
+6. 再把同一个 start_conda_jupyter_macos.command 文件拖进终端窗口，按回车。
+
+7. 做完后，直接双击 start_conda_jupyter_macos.command 即可运行。
+
+如果双击时 macOS 仍然提示安全限制，可以右键该文件，选择“打开”，再确认一次。
