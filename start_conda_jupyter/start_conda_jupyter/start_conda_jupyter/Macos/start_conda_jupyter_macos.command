@@ -5,7 +5,7 @@ set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REQUESTED_ENV=""
 DRY_RUN=0
-LAUNCHER_VERSION="2026.04.19.19"
+LAUNCHER_VERSION="2026.05.19.1"
 
 CONDA_ROOT=""
 CONDA_BIN=""
@@ -87,6 +87,7 @@ show_header() {
     print_line
     print_info_line "Version" "$LAUNCHER_VERSION"
     print_info_line "Author" "CunCun"
+    print_info_line "Open Source" "https://github.com/cnqiujunhu-dev/conda-jupyter-launcher"
 }
 
 normalize_dir() {
@@ -573,10 +574,10 @@ test_python_module_in_environment() {
 
 ensure_required_python_packages() {
     local environment_name="$1"
-    local labels=("pandas" "scikit-learn" "jupyter notebook" "matplotlib" "torch" "torchvision" "torchaudio")
-    local modules=("pandas" "sklearn" "notebook" "matplotlib" "torch" "torchvision" "torchaudio")
-    local conda_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "pytorch" "torchvision" "torchaudio")
-    local pip_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "torch" "torchvision" "torchaudio")
+    local labels=("pandas" "scikit-learn" "jupyter notebook" "matplotlib" "statsmodels" "spacy" "textblob" "torch" "torchvision" "torchaudio")
+    local modules=("pandas" "sklearn" "notebook" "matplotlib" "statsmodels" "spacy" "textblob" "torch" "torchvision" "torchaudio")
+    local conda_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "statsmodels" "spacy" "textblob" "pytorch" "torchvision" "torchaudio")
+    local pip_packages=("pandas" "scikit-learn" "notebook" "matplotlib" "statsmodels" "spacy" "textblob" "torch" "torchvision" "torchaudio")
     local missing_conda_packages=()
     local missing_pip_packages=()
     local missing_labels=()

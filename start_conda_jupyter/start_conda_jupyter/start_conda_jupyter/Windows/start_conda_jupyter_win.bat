@@ -162,8 +162,9 @@ function Show-LauncherHeader {
     $leftPadding = [Math]::Max(0, [int]((68 - $title.Length) / 2))
     Write-Host ((" " * $leftPadding) + $title) -ForegroundColor Cyan
     Write-Rule -Width 68 -Color DarkCyan -Character '='
-    Write-InfoLine -Label "Version" -Value "2026.04.19.19"
+    Write-InfoLine -Label "Version" -Value "2026.05.19.1"
     Write-InfoLine -Label "Author" -Value "CunCun"
+    Write-InfoLine -Label "Open Source" -Value "https://github.com/cnqiujunhu-dev/conda-jupyter-launcher"
 }
 
 function Initialize-CondaRuntimeSettings {
@@ -1655,6 +1656,24 @@ function Ensure-RequiredPythonPackages {
             Module       = "matplotlib"
             CondaPackage = "matplotlib"
             PipPackage   = "matplotlib"
+        },
+        [PSCustomObject]@{
+            Label        = "statsmodels"
+            Module       = "statsmodels"
+            CondaPackage = "statsmodels"
+            PipPackage   = "statsmodels"
+        },
+        [PSCustomObject]@{
+            Label        = "spacy"
+            Module       = "spacy"
+            CondaPackage = "spacy"
+            PipPackage   = "spacy"
+        },
+        [PSCustomObject]@{
+            Label        = "textblob"
+            Module       = "textblob"
+            CondaPackage = "textblob"
+            PipPackage   = "textblob"
         },
         [PSCustomObject]@{
             Label        = "torch"

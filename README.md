@@ -24,6 +24,9 @@ start_conda_jupyter/start_conda_jupyter/start_conda_jupyter/
   - `scikit-learn`
   - `jupyter notebook`
   - `matplotlib`
+  - `statsmodels`
+  - `spacy`
+  - `textblob`
   - `torch`
   - `torchvision`
   - `torchaudio`
